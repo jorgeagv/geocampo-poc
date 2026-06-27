@@ -1,0 +1,28 @@
+# dependencies
+node_modules
+
+# build outputs
+dist
+build
+
+# env
+.env
+.env.local
+
+# logs
+*.log
+
+# OS
+.DS_Store
+
+# Vite
+apps/frontend/dist
+
+# backend
+apps/backend/dist
+
+# pnpm
+.pnpm-store
+
+# docker volumes (no subir datos)
+docker/data
