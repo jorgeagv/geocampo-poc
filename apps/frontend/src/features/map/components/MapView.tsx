@@ -1,6 +1,15 @@
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer } from "react-leaflet";
+
+import { BaseTileLayer } from "./BaseTileLayer";
+import { GeometryLayer } from "./GeometryLayer";
+import { DrawControl } from "./DrawControl";
 
 export function MapView() {
+  const handleGeometryCreated = (feature: GeoJSON.Feature) => {
+    console.log("Nueva geometría:");
+    console.log(feature);
+  };
+
   return (
     <MapContainer
       center={[20.132, -100.813]}
@@ -10,10 +19,11 @@ export function MapView() {
         height: "100vh",
       }}
     >
-      <TileLayer
-        attribution="© OpenStreetMap contributors"
-        url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-      />
+      <BaseTileLayer />
+
+      <GeometryLayer />
+
+      <DrawControl onGeometryCreated={handleGeometryCreated} />
     </MapContainer>
   );
 }
